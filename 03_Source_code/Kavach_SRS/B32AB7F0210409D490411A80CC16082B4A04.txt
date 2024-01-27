@@ -1,0 +1,36 @@
+B32AB7F0210409D490411A80CC16082B4A04
+18482C7E5AA23305713868A506AB4F15
+754620676E754B20796D207374616854
+
+To calculate the CBC-MAC (Cipher Block Chaining Message Authenti
+cation Code) for message “m”, the length in bits of the message must be a 
+multiple of 128.The length of a message “m” in bits is not a multiple of 128, 
+padding is performed prior to the computation of the CBC-MAC. Zero bits 
+as needed are added at the end of the message “m” to obtain a multiple of 
+128 bits. The padding data “p” is used for CBC-MAC calculation only. It 
+does not become part of the message. 
+The  CBC-MAC  (K,  X)  function  using  a  secret  triple-key  K  and  the  
+value  X  =  m  |  p  is defined as follows: 
+Let X be constituted by the 128-bit blocks X 1  | X 2  | ... | X q . Let AES 
+(KS,X) be a block cipher function, single AES in CBC mode, enciphering 
+the data string X using the key KS. Then, CBC-MAC is derived by the fol
+lowing iteration: 
+Assume a message m (232 bits, 29 octets) with the following structure in 
+hex notation: 
+
+B3,2A,B7,F0,21,04,09,D4,90,41,1A,80,CC,16,08,2B,4A,04 
+Because it is not a multiple of 128 bits, “m” must be padded with zero bits 
+before MAC calculation as follows:  
+
+B3,2A,B7,F0,21,04,09,D4,90,41,1A,80,CC,16,08,2B,4A,04,00,00,00,00,00,
+ 00,00,00,00,00,00,00,00,00 
+A 128 bit key is required for MAC calculation, the key to be used to calcu
+late a MAC is the Session Key KS, derived during session establishment 
+from KA. This example assumes that KS shown below as generated above.  
+Step 1: 
+The number of times MAC Loop to be run is: 2 
+The MAC Code is: C0,A3,CC, FE 
+The CRC 32 bit is: B9,3E,E6,0A 
+The final data is: 
+B3,2A,B7,F0,21,04,09,D4,90,41,1A,80,CC,16,08,2B,4A,04, C0,A3,CC, FE, 
+B9,3E,E6,0A 

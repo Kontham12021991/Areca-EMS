@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../Python_env"
+		},
+		{
+			"path": "../Areca/01_kavach/03_Source_code/Kavach_SRS"
+		}
+	],
+	"settings": {
+		"DevChat.Language": "en",
+		"DevChat.PythonForChat": "c:\\Users\\HP\\.vscode\\extensions\\merico.devchat-0.2.81\\tools\\python-3.11.6-embed-amd64\\python.exe"
+	}
+}

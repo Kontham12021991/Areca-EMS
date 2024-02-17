@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!-- saved from url=(0120)http://10.100.2.19/signal/Final%20Compendium/2023/Tools%20Kavach/Adjustment_Junction%20Tag%20Calculation%2017-05-23.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style>
+p.a {
+  text-align-last: right;
+}
+</style>
+</head>
+<body>
+<h1><u>ADJUSTMENT/JUNCTION TAG DATA VERIFICATION </u></h1>
+
+<p class="a">Last updated on 17.05.2023 </p>
+<form id="NTag_frm">
+  <table>
+<tbody><tr>  
+    <td class="tdLabel"><label for="TypeofTag" class="label">Type of Tag:</label></td>  
+    <td><select name="TagType" id="TypeofTag" onchange="ChangeStatus()" style="width:200px">  
+    <option value="12">Adjustment/Junction tag</option>  
+      
+</select>  
+</td>  
+</tr>  
+<tr id="Version">  
+    <td class="tdLabel"><label for="Version" class="label">Version:</label></td>  
+    <td><select name="Version" id="Version" onchange="ChangeStatus()" style="width:200px">  
+    <option value="1">Kavach Spec 4.0</option>  
+	  
+</select>  
+</td>  
+</tr>  
+
+<tr id="Unique_ID">  
+    <td class="tdLabel"><label for="Unique_ID" class="label">Unique ID of RFID Tag Set:(Range: 1 to 1023) </label></td>  
+    <td><input type="number" name="Unique_ID" min="1" max="1023" value="714" id="Unique_ID" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr>  
+
+<tr>  
+    <td class="tdLabel"><label for="AbsLoc" class="label">Absolute location-1 in meters: (Range: 1 to 8388607) </label></td> 
+</tr> 
+<tr id="AbsLocMain">	
+	<td class="tdLabel"><label for="AbsLocMain" class="label"> &nbsp; &nbsp; &nbsp; &nbsp; for Main Tag: </label></td>  
+    <td><input type="number" name="AbsLocMain" min="0" max="8388607" value="169970" id="AbsLocMain" onchange="ChangeStatus()" style="width:200px"></td> 
+</tr> 
+<tr id="AbsLocDup">	
+	<td class="tdLabel"><label for="AbsLocDup" class="label">&nbsp; &nbsp; &nbsp; &nbsp;  for Duplicate Tag: </label></td>  
+    <td><input type="number" name="AbsLocDup" min="0" max="8388607" value="169974" id="AbsLocDup" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr> 
+
+<tr id="TinNom">  
+    <td class="tdLabel"><label for="TinNom" class="label">TIN-1 :(Range: 0 to 255) </label></td>  
+    <td><input type="number" name="TinNom" min="0" max="255" value="81" id="TinNom" onchange="ChangeStatus()" style="width:200px"></td>  
+	<td class="tdlabel"> <label for="TinNom" class="label"><b>NOTE:</b> TIN value ZERO to be used at Kavach territory exit in 
+valid direction </label></td> 
+</tr>
+
+<tr id="TinRev">  
+    <td class="tdLabel"><label for="TinRev" class="label">TIN-2 : (Range: 0 to 255) </label></td>  
+    <td><input type="number" name="TinRev" min="0" max="255" value="81" id="TinRev" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr>
+<tr>  
+    <td class="tdLabel"><label for="AbsLoc2" class="label">Absolute location-2 in meters: (Range: 1 to 8388607) </label></td> 
+</tr> 
+<tr id="AbsLocMain2">	
+	<td class="tdLabel"><label for="AbsLocMain2" class="label"> &nbsp; &nbsp; &nbsp; &nbsp; for Main Tag: </label></td>  
+    <td><input type="number" name="AbsLocMain2" min="0" max="8388607" value="169970" id="AbsLocMain2" onchange="ChangeStatus()" style="width:200px"></td> 
+</tr> 
+<tr id="AbsLocDup2">	
+	<td class="tdLabel"><label for="AbsLocDup2" class="label">&nbsp; &nbsp; &nbsp; &nbsp;  for Duplicate Tag: </label></td>  
+    <td><input type="number" name="AbsLocDup2" min="0" max="8388607" value="169974" id="AbsLocDup2" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr> 
+
+<tr id="Dir_Corr1">  
+    <td class="tdLabel"><label for="Dir_Corr1" class="label">Direction Correction-1:</label></td>  
+    <td><select name="Dir_Corr1" id="Dir_Corr1" onchange="ChangeStatus()" style="width:200px">  
+    <option value="1">Location Correction, Loco travel direction Nominal and Next tag is in Nominal direction </option>  
+    <option value="2">Location Correction, Loco travel direction Nominal and Next tag is in Reverse direction </option>  
+    <option value="3"> Location Correction, Loco travel direction Reverse and Next tag is in Nominal direction</option>  
+    <option value="4">Location Correction, Loco travel direction Reverse and Next tag is in Reverse direction </option>
+	<option value="0"> Reset Direction unknown. Derive direction from next tags </option>  
+	</select>  
+</td>
+</tr>
+<tr id="Dir_Corr2">  
+    <td class="tdLabel"><label for="Dir_Corr2" class="label">Direction Correction-2:</label></td>  
+    <td><select name="Dir_Corr2" id="Dir_Corr2" onchange="ChangeStatus()" style="width:200px">  
+    <option value="1">Location Correction, Loco travel direction Nominal and Next tag is in Nominal direction </option>  
+    <option value="2">Location Correction, Loco travel direction Nominal and Next tag is in Reverse direction </option>  
+    <option value="3"> Location Correction, Loco travel direction Reverse and Next tag is in Nominal direction</option>  
+    <option value="4">Location Correction, Loco travel direction Reverse and Next tag is in Reverse direction </option>
+	<option value="0"> Reset Direction unknown. Derive direction from next tags </option>  
+	</select>  
+</td>
+</tr>
+<tr id="Location_Correction_Type">  
+    <td class="tdLabel"><label for="Loc_Corr_Type" class="label">Location Correction Type:</label></td>  
+    <td><select name="Loc_Corr_Type" id="Loc_Corr_Type" onchange="ChangeStatus()" style="width:200px">  
+    <option value="0">Adjustment in Absolute Section</option>  
+    <option value="1">Reset in Absolute direction</option>  
+ </select>  
+</td>
+</tr>  
+
+<tr id="SectionType1">  
+    <td class="tdLabel"><label for="SectionType1" class="label">Section type-1:</label></td>  
+    <td><select name="SectionType1" id="SectionType1" onchange="ChangeStatus()" style="width:200px">  
+    <option value="8">Automatic Section</option> 
+	<option value="0">Station Section</option>  
+    <option value="4">Absolute block</option>  
+	<option value="12">Virtual Block</option>  
+    </select>  
+</td>  
+</tr> 
+
+<tr id="SectionType2">  
+    <td class="tdLabel"><label for="SectionType2" class="label">Section type-2:</label></td>  
+    <td><select name="SectionType2" id="SectionType2" onchange="ChangeStatus()" style="width:200px">  
+    <option value="2">Automatic Section</option>
+	<option value="0">Station Section</option>  
+    <option value="1">Absolute block</option>  	
+	<option value="3">Virtual Block</option>  
+    </select>  
+</td>  
+</tr>
+ 
+<tr id="Tag Duplication Main ">  
+    <td class="tdLabel"><label for="Tag Main" class="label">Tag Main:</label></td>  
+    <td><select name="Tag Main" id="Tag Main" onchange="ChangeStatus()" style="width:200px">  
+    <option value="0">Main Tag</option>  
+   
+ </select>  
+</td> 
+</tr>
+<tr id="Tag Duplication Dup ">  
+    <td class="tdLabel"><label for="Tag Main" class="label">Tag Duplicate:</label></td>  
+    <td><select name="Tag Dup" id="Tag Dup" onchange="ChangeStatus()" style="width:200px">  
+    <option value="16">Duplicate Tag</option>  
+ </select>  
+</td>
+</tr> 
+ 
+
+<tr id="CommNom">  
+    <td class="tdLabel"><label for="CommNom" class="label">Communication in Nominal Direction:</label></td>  
+    <td><select name="CommNom" id="CommNom" onchange="ChangeStatus()" style="width:200px">  
+    <option value="0">Required</option>  
+    <option value="1">Not Required</option>  
+</select>  
+</td>  
+</tr> 
+
+<tr id="CommRev">  
+    <td class="tdLabel"><label for="Commrev" class="label">Communication in Reverse Direction:</label></td>  
+    <td><select name="CommRev" id="CommRev" onchange="ChangeStatus()" style="width:200px">  
+    <option value="0">Required</option>  
+    <option value="1">Not Required</option>  
+</select>  
+</td>  
+</tr> 
+</tbody></table>  
+</form> 
+
+<p>Click "Calculate" to display the value of Decimal, Hex, CRC, Page X and Page Y result.</p>
+
+<button onclick="ChangeStatus()">Calculate</button>
+
+<p id="Main_Tag">  </p> 
+
+<p id="Dup_Tag">  </p> 
+
+<script>
+function ChangeStatus() {
+  var x = document.getElementById("NTag_frm");
+  var Main_Decimal_text = "Decimal equivalent is: ";
+  var Main_Hex_text="Hex equivalent is:";
+  var Main_Bin_text="Binary equivalent is:";
+  var Main_Bin="";
+  var Main_CRC="The 30-bit CRC of Main Tag is:";
+  var Main_PageX_Data="The Page X data of Main Tag is:";
+  var Main_PageY_Data="The Page Y data of Main Tag is:";
+  var Dup_Decimal_text = "Decimal equivalent is: ";
+  var Dup_Hex_text="Hex equivalent is:";
+  var Dup_Bin_text="Binary equivalent is:";
+  var Dup_Bin="";
+
+  var Dup_CRC="The 30-bit CRC of Duplicate Tag is:";
+  var Dup_PageX_Data="The Page X data of Duplicate Tag is:";
+  var Dup_PageY_Data="The Page Y data of Duplicate Tag is:";
+  var CRC_Value=0;
+  var Dup_CRC_Value=0;
+  var i;
+  var Main_Bin;
+  
+  const Field_Length =[4,2,10,23,23,8,8,23,23,3,3,1,4,2,5,5,1,1,30];
+  
+  var Max=x.length;
+  Main_Bin+=decToBin(CRC_Value,Field_Length[Max]);
+  Main_Bin_text+=decToBin(CRC_Value,Field_Length[Max]);
+  
+  Dup_Bin+=decToBin(Dup_CRC_Value,Field_Length[Max]);
+  Dup_Bin_text+=decToBin(Dup_CRC_Value,Field_Length[Max]);
+  
+  for (i = x.length-1; i >=0 ;i--) {
+  if(i!=4)
+  if(i!=8)
+  if(i!=15)
+  {
+	
+    Main_Decimal_text += x.elements[i].value;
+	Main_Hex_text+=decToHex(Number(x.elements[i].value));
+	Main_Bin_text+=decToBin(Number(x.elements[i].value),Field_Length[i]);
+	Main_Bin+=decToBin(Number(x.elements[i].value),Field_Length[i]);
+	
+  }
+ 
+  if(i!=3)
+  if(i!=7)
+  if(i!=14)
+  {
+	
+    Dup_Decimal_text += x.elements[i].value;
+	Dup_Hex_text+=decToHex(Number(x.elements[i].value));
+	Dup_Bin_text+=decToBin(Number(x.elements[i].value),Field_Length[i]);
+	Dup_Bin+=decToBin(Number(x.elements[i].value),Field_Length[i]);
+	
+  }
+  
+  }
+  
+  
+//Main Tag data calculation 
+ CRC_Value=crc30cdma(Main_Bin);
+  
+  var CRC_Bin=parseInt(CRC_Value,16).toString(2);
+  Main_CRC+=CRC_Value.toUpperCase();
+ 
+ //PageX1= (parseInt(Main_Bin.substring(64,96),2).toString(16).toUpperCase()+parseInt(Main_Bin.substring(96,128),2).toString(16).toUpperCase()).padStart(16,0);;
+ PageX1= (parseInt(Main_Bin.substring(64,96),2).toString(16).toUpperCase()).padStart(8,0)+(parseInt(Main_Bin.substring(96,128),2).toString(16).toUpperCase()).padStart(8,0);
+  
+ console.log("hex:"+PageX1); 
+  var pageYLSB=parseInt(Main_Bin.substring(32,64),2).toString(16).padStart(8,0).toUpperCase();
+ 
+  Main_PageX_Data+=PageX1;
+  Main_PageY_Data+=parseInt(CRC_Bin+Main_Bin.substring(30,32),2).toString(16).padStart(8,0).toUpperCase()+pageYLSB;
+  
+ //Duplicate Tag data calculation
+ Dup_CRC_Value=crc30cdma(Dup_Bin); 
+ Dup_CRC+=Dup_CRC_Value.toUpperCase();
+ //var Dup_PageX1= (parseInt(Dup_Bin.substring(64,96),2).toString(16).toUpperCase()+parseInt(Dup_Bin.substring(96,128),2).toString(16).toUpperCase()).padStart(16,0);; 
+ var Dup_PageX1= (parseInt(Dup_Bin.substring(64,96),2).toString(16).toUpperCase()).padStart(8,0)+(parseInt(Dup_Bin.substring(96,128),2).toString(16).toUpperCase()).padStart(8,0);
+ var Dup_CRC_Bin= parseInt(Dup_CRC_Value,16).toString(2);
+ var Dup_pageYLSB=parseInt(Dup_Bin.substring(32,64),2).toString(16).padStart(8,0).toUpperCase();
+ Dup_PageX_Data+=Dup_PageX1;
+ Dup_PageY_Data+=(parseInt(Dup_CRC_Bin+Dup_Bin.substring(30,32),2).toString(16).toUpperCase()+Dup_pageYLSB).padStart(16,0);
+
+
+//document.getElementById("Main_Tag").innerHTML = "<b>" + " The details of Main Tag are:" +  "<br>" + Main_Decimal_text + "<br>" + Main_Hex_text + "<br>" +Main_Bin_text + "<br>" +Main_CRC+ "<br>" + Main_PageX_Data+ "<br>" + Main_PageY_Data+
+//"<br>"+" The details of Duplicate Tag are:" +
+//"<br>" + Dup_Decimal_text + "<br>" + Dup_Hex_text + "<br>" +Dup_Bin_text + "<br>" +Dup_CRC+ "<br>" + Dup_PageX_Data+ "<br>" + Dup_PageY_Data 
+document.getElementById("Main_Tag").innerHTML = "<b>" + " The details of Main Tag are:" +  "<br>" +Main_CRC+ "<br>" + Main_PageX_Data+ "<br>" + Main_PageY_Data +  "<br>"+  "<br>"+" The details of Duplicate Tag are:" +  "<br>" +Dup_CRC+ "<br>" + Dup_PageX_Data+ "<br>" + Dup_PageY_Data ;
+}
+function decToHex(number)
+{
+  if (number < 0)
+  {
+    number = 0xFFFFFFFF + number + 1;
+  }
+
+  return number.toString(16).toUpperCase();
+}
+function decToBin(number,max_length)
+{
+ var temp;
+ var pad=''; 
+ var i;
+ var j=0;
+ if (number < 0)
+  {
+    number = 0xFFFFFFFF + number + 1;
+  }
+	temp=number.toString(2).toUpperCase();
+	if (temp.length<max_length)
+	{
+	for (i=temp.length; i<max_length; i++){
+	j=1;
+	pad+="0";
+	}
+	}
+	if (j==1){
+	temp=pad+temp;
+	}
+	
+  return temp;
+}
+
+//************************************************************************
+/*function crc30cdma(p)
+{
+var  i, j, c, bit;
+var crc, crc1, crc2;
+var crcVal = 0;
+var order = 30;
+var polynom = 0x2030b9c7;
+var crcinit = 0x3fffffff;
+var crcxor = 0x3fffffff;
+
+var crcmask;
+var crchighbit;
+var crcinit_direct;
+var crcinit_nondirect;
+var hex=[];
+var byteArray;
+
+//hex=p.split("");
+byteArray=p.match(new RegExp('.{1,' + 8 + '}', 'g'));
+
+for(j=0;j<byteArray.length;j++)
+{
+	hex[j]=parseInt(byteArray[j],2).toString(10);
+
+}
+
+crcmask = 0x3fffffff;
+crchighbit = 0x20000000;
+crcinit_direct = crcinit;
+crc = crcinit_direct;
+for (i=15; i>=3; i--) 
+//for (i=hex.length-1; i>0; i--) 
+{
+
+	c = hex[i];
+    for (j=0x80; j; j=j>>1) 
+	{
+		
+		bit = crc & crchighbit;
+		crc= crc << 1;
+		if (c & j) 
+			bit ^= crchighbit;
+		if (bit) 
+			crc ^= polynom;
+	}
+	
+}	
+
+crc ^= crcxor;
+crc &= crcmask;
+
+return(crc.toString(16));
+}*/
+
+
+function crc30cdma(p)
+{
+var  i, j, c, bit;
+var crc, crc1, crc2;
+var crcVal = 0;
+var order = 30;
+var polynom = 0x2030b9c7;
+var crcinit = 0x3fffffff;
+var crcxor = 0x3fffffff;
+
+var crcmask;
+var crchighbit;
+var crcinit_direct;
+var crcinit_nondirect;
+var hex=[];
+var byteArray;
+
+//hex=p.split("");
+byteArray=p.match(new RegExp('.{1,' + 8 + '}', 'g'));
+
+for(j=0;j<byteArray.length;j++)
+{
+	hex[j]=parseInt(byteArray[j],2).toString(10);
+
+}
+
+crcmask = 0x3fffffff;
+crchighbit = 0x20000000;
+crcinit_direct = crcinit;
+crc = crcinit_direct;
+for (i=15; i>=3; i--) 
+//for (i=hex.length-1; i>0; i--) 
+{
+
+	c = hex[i];
+    for (j=0x80; j; j=j>>1) 
+	{
+		
+		bit = crc & crchighbit;
+		crc= crc << 1;
+		if (c & j) 
+			bit ^= crchighbit;
+		if (bit) 
+			crc ^= polynom;
+	}
+	
+}	
+
+crc ^= crcxor;
+crc &= crcmask;
+console.log("CRC:"+crc.toString(16))
+return(crc.toString(16));
+}
+
+</script>
+
+
+
+
+
+
+</body></html>

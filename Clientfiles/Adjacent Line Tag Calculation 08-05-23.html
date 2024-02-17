@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)http://10.100.2.19/signal/Final%20Compendium/2023/Tools%20Kavach/Adjacent%20Line%20Tag%20Calculation%2008-05-23.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<style>
+p.a {
+  text-align-last: right;
+}
+</style>
+</head>
+<body>
+<h1><u>ADJACENT LINE TAG DATA VERIFICATION </u></h1> 
+<p class="a">Last updated on 08.05.2023 </p>
+<form id="ATag_frm">
+  <table>
+<tbody><tr>  
+    
+	<td class="tdLabel"><label for="TypeofTag" class="label">Type of Tag:</label></td>  
+    <td><select name="TagType" id="TypeofTag" onchange="ChangeStatus()" style="width:200px">  
+    <option value="11">Adjacent Line Tag</option>   
+      
+</select>  
+</td>  
+</tr>  
+<tr id="Version">  
+    <td class="tdLabel"><label for="Version" class="label">Version:</label></td>  
+    <td><select name="Version" id="Version" onchange="ChangeStatus()" style="width:200px">  
+    <option value="1">Kavach Spec 4.0</option>  
+	  
+</select>  
+</td>  
+</tr>  
+
+<tr id="Unique_ID">  
+    <td class="tdLabel"><label for="Unique_ID" class="label">Unique ID of RFID Tag Set:(Range: 1 to 1023) </label></td>  
+    <td><input type="number" name="Unique_ID" min="1" max="1023" value="143" id="Unique_ID" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr>  
+
+<tr>  
+    <td class="tdLabel"><label for="AbsLoc" class="label">Absolute location in meters: (Range: 1 to 8388607) </label></td> 
+</tr> 
+<tr id="AbsLocMain">	
+	<td class="tdLabel"><label for="AbsLocMain" class="label"> &nbsp; &nbsp; &nbsp; &nbsp; for Main Tag: </label></td>  
+    <td><input type="number" name="AbsLocMain" min="0" max="8388607" value="252860" id="AbsLocMain" onchange="ChangeStatus()" style="width:200px"></td> 
+</tr> 
+<tr id="AbsLocDup">	
+	<td class="tdLabel"><label for="AbsLocDup" class="label">&nbsp; &nbsp; &nbsp; &nbsp;  for Duplicate Tag: </label></td>  
+    <td><input type="number" name="AbsLocDup" min="0" max="8388607" value="252864" id="AbsLocDup" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr> 
+
+<tr id="TinNom">  
+    <td class="tdLabel"><label for="TinNom" class="label">TIN in Nominal direction:(Range: 0 to 255) </label></td>  
+    <td><input type="number" name="TinNom" min="0" max="255" value="204" id="TinNom" onchange="ChangeStatus()" style="width:200px"></td>  
+	<td class="tdlabel"> <label for="TinNom" class="label"><b>NOTE:</b> TIN value ZERO to be used at Kavach territory exit in 
+	valid direction </label></td> 
+</tr>
+
+<tr id="TinRev">  
+    <td class="tdLabel"><label for="TinRev" class="label">TIN in Reverse direction: (Range: 0 to 255) </label></td>  
+    <td><input type="number" name="TinRev" min="0" max="255" value="204" id="TinRev" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr>
+<tr id="AdjLineTin1">  
+    <td class="tdLabel"><label for="AdjLineTin1" class="label">Adjacent Line-1 TIN : (Range: 0 to 255) </label></td>  
+    <td><input type="number" name="AdjLineTin1" min="0" max="255" value="203" id="AdjLineTin1" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr>
+<tr id="AdjLineTin2">  
+    <td class="tdLabel"><label for="AdjLineTin2" class="label">Adjacent Line-2 TIN : (Range: 0 to 255) </label></td>  
+    <td><input type="number" name="AdjLineTin2" min="0" max="255" value="0" id="AdjLineTin2" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr>
+<tr id="AdjLineTin3">  
+    <td class="tdLabel"><label for="AdjLineTin3" class="label">Adjacent Line-3 TIN : (Range: 0 to 255) </label></td>  
+    <td><input type="number" name="AdjLineTin3" min="0" max="255" value="0" id="AdjLineTin3" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr>
+<tr id="AdjLineTin4">  
+    <td class="tdLabel"><label for="AdjLineTin4" class="label">Adjacent Line-4 TIN : (Range: 0 to 255) </label></td>  
+    <td><input type="number" name="AdjLineTin4" min="0" max="255" value="0" id="AdjLineTin4" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr>
+<tr id="AdjLineTin5">  
+    <td class="tdLabel"><label for="AdjLineTin5" class="label">Adjacent Line-5 TIN : (Range: 0 to 255) </label></td>  
+    <td><input type="number" name="AdjLineTin5" min="0" max="255" value="0" id="AdjLineTin5" onchange="ChangeStatus()" style="width:200px"></td>  
+</tr>
+<tr id="Tag Duplication Main ">  
+    <td class="tdLabel"><label for="Tag Main" class="label">Tag Main:</label></td>  
+    <td><select name="Tag Main" id="Tag Main" onchange="ChangeStatus()" style="width:200px">  
+    <option value="0">Main Tag</option>  
+   
+ </select>  
+</td> 
+</tr>
+<tr id="Tag Duplication Dup ">  
+    <td class="tdLabel"><label for="Tag Main" class="label">Tag Duplicate:</label></td>  
+    <td><select name="Tag Dup" id="Tag Dup" onchange="ChangeStatus()" style="width:200px">  
+    <option value="1">Duplicate Tag</option>  
+ </select>  
+</td>
+</tr>
+</tbody></table>  
+</form> 
+
+<p>Click "Calculate" to display the value of Decimal, Hex, CRC, Page X and Page Y result.</p>
+
+<button onclick="ChangeStatus()">Calculate</button>
+
+<p id="A_Tag">  </p> 
+
+<script>
+function ChangeStatus() {
+  var x = document.getElementById("ATag_frm");
+  var Main_Decimal_text = "Decimal equivalent is: ";
+  var Main_Hex_text="Hex equivalent is:";
+  var Main_Bin_text="Binary equivalent is:";
+  var Main_Bin="";
+  var Main_CRC="The 30-bit CRC of Main Tag is:";
+  var Main_PageX_Data="The Page X data of Main Tag is:";
+  var Main_PageY_Data="The Page Y data of Main Tag is:";
+  var Dup_Decimal_text = "Decimal equivalent is: ";
+  var Dup_Hex_text="Hex equivalent is:";
+  var Dup_Bin_text="Binary equivalent is:";
+  var Dup_Bin="";
+
+  var Dup_CRC="The 30-bit CRC of Duplicate Tag is:";
+  var Dup_PageX_Data="The Page X data of Duplicate Tag is:";
+  var Dup_PageY_Data="The Page Y data of Duplicate Tag is:";
+  var CRC_Value=0;
+  var Dup_CRC_Value=0;
+  var i;
+  var Main_Bin;
+  const Field_Length =[4, 2, 10, 23, 23, 8, 8, 8, 8, 8, 8, 8, 1,1,32]
+  var Max=x.length;
+  Main_Bin+=decToBin(CRC_Value,Field_Length[Max]);
+  Main_Bin_text+=decToBin(CRC_Value,Field_Length[Max]);
+  
+  Dup_Bin+=decToBin(Dup_CRC_Value,Field_Length[Max]);
+  Dup_Bin_text+=decToBin(Dup_CRC_Value,Field_Length[Max]);
+  
+  for (i = x.length-1; i >=0 ;i--) {
+  if(i!=4)
+  if(i!=13)
+  {
+	
+    Main_Decimal_text += x.elements[i].value;
+	Main_Hex_text+=decToHex(Number(x.elements[i].value));
+	Main_Bin_text+=decToBin(Number(x.elements[i].value),Field_Length[i]);
+	Main_Bin+=decToBin(Number(x.elements[i].value),Field_Length[i]);
+	
+  }
+  if(i!=3)
+  if(i!=12)
+  {
+	
+    Dup_Decimal_text += x.elements[i].value;
+	Dup_Hex_text+=decToHex(Number(x.elements[i].value));
+	Dup_Bin_text+=decToBin(Number(x.elements[i].value),Field_Length[i]);
+	Dup_Bin+=decToBin(Number(x.elements[i].value),Field_Length[i]);
+	
+  }
+  }
+
+//Main Tag data calculation 
+ CRC_Value=crc30cdma(Main_Bin);
+  
+  var CRC_Bin=parseInt(CRC_Value,16).toString(2);
+  Main_CRC+=CRC_Value.toUpperCase();
+ 
+ //PageX1= (parseInt(Main_Bin.substring(64,96),2).toString(16).toUpperCase()+parseInt(Main_Bin.substring(96,128),2).toString(16).toUpperCase()).padStart(16,0);;
+ PageX1= (parseInt(Main_Bin.substring(64,96),2).toString(16).toUpperCase()).padStart(8,0)+(parseInt(Main_Bin.substring(96,128),2).toString(16).toUpperCase()).padStart(8,0);
+  
+  
+  var pageYLSB=parseInt(Main_Bin.substring(32,64),2).toString(16).padStart(8,0).toUpperCase();
+ 
+  Main_PageX_Data+=PageX1;
+  Main_PageY_Data+=parseInt(CRC_Bin+Main_Bin.substring(30,32),2).toString(16).toUpperCase()+pageYLSB;
+  
+ //Duplicate Tag data calculation
+ Dup_CRC_Value=crc30cdma(Dup_Bin); 
+ Dup_CRC+=Dup_CRC_Value.toUpperCase();
+ //var Dup_PageX1= (parseInt(Dup_Bin.substring(64,96),2).toString(16).toUpperCase()+parseInt(Dup_Bin.substring(96,128),2).toString(16).toUpperCase()).padStart(16,0);; 
+ var Dup_PageX1= (parseInt(Dup_Bin.substring(64,96),2).toString(16).toUpperCase()).padStart(8,0)+(parseInt(Dup_Bin.substring(96,128),2).toString(16).toUpperCase()).padStart(8,0);
+ var Dup_CRC_Bin= parseInt(Dup_CRC_Value,16).toString(2);
+ var Dup_pageYLSB=parseInt(Dup_Bin.substring(32,64),2).toString(16).padStart(8,0).toUpperCase();
+ Dup_PageX_Data+=Dup_PageX1;
+ Dup_PageY_Data+=parseInt(Dup_CRC_Bin+Dup_Bin.substring(30,32),2).toString(16).toUpperCase()+Dup_pageYLSB;
+
+ 
+  document.getElementById("A_Tag").innerHTML = "<b>" + " The details of Main Tag are:" +  "<br>" +Main_CRC+ "<br>" + Main_PageX_Data+ "<br>" + Main_PageY_Data +  "<br>"+  "<br>"+" The details of Duplicate Tag are:" +  "<br>" +Dup_CRC+ "<br>" + Dup_PageX_Data+ "<br>" + Dup_PageY_Data ;
+
+  
+}
+function decToHex(number)
+{
+  if (number < 0)
+  {
+    number = 0xFFFFFFFF + number + 1;
+  }
+
+  return number.toString(16).toUpperCase();
+}
+function decToBin(number,max_length)
+{
+ var temp;
+ var pad=''; 
+ var i;
+ var j=0;
+ if (number < 0)
+  {
+    number = 0xFFFFFFFF + number + 1;
+  }
+	temp=number.toString(2).toUpperCase();
+	if (temp.length<max_length)
+	{
+	for (i=temp.length; i<max_length; i++){
+	j=1;
+	pad+="0";
+	}
+	}
+	if (j==1){
+	temp=pad+temp;
+	}
+	
+  return temp;
+}
+
+//************************************************************************
+function crc30cdma(p)
+{
+var  i, j, c, bit;
+var crc, crc1, crc2;
+var crcVal = 0;
+var order = 30;
+var polynom = 0x2030b9c7;
+var crcinit = 0x3fffffff;
+var crcxor = 0x3fffffff;
+
+var crcmask;
+var crchighbit;
+var crcinit_direct;
+var crcinit_nondirect;
+var hex=[];
+var byteArray;
+
+//hex=p.split("");
+byteArray=p.match(new RegExp('.{1,' + 8 + '}', 'g'));
+
+for(j=0;j<byteArray.length;j++)
+{
+	hex[j]=parseInt(byteArray[j],2).toString(10);
+
+}
+
+crcmask = 0x3fffffff;
+crchighbit = 0x20000000;
+crcinit_direct = crcinit;
+crc = crcinit_direct;
+for (i=15; i>=3; i--) 
+//for (i=hex.length-1; i>0; i--) 
+{
+
+	c = hex[i];
+    for (j=0x80; j; j=j>>1) 
+	{
+		
+		bit = crc & crchighbit;
+		crc= crc << 1;
+		if (c & j) 
+			bit ^= crchighbit;
+		if (bit) 
+			crc ^= polynom;
+	}
+	
+}	
+
+crc ^= crcxor;
+crc &= crcmask;
+
+return(crc.toString(16));
+}
+
+
+
+</script>
+
+
+
+
+</body></html>
